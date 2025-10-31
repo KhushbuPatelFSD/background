@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Background Properties Interactive Demo</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background-color: rgb(176, 190, 197);
+        margin: 20px;
+        color: #222;
+        text-align: center;
+        line-height: 1.6;
+      }
+
+      h2 {
+        color: #0d47a1;
+        margin-bottom: 10px;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+
+      select {
+        padding: 8px 10px;
+        border-radius: 6px;
+        border: 1px solid #90caf9;
+        font-size: 15px;
+        background: white;
+      }
+
+      /* Outer container for background demonstration */
+      .demo-container {
+        height: 350px;
+        overflow: auto; /* allows scrolling for “fixed” background */
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        background-color: #000;
+      }
+
+      /* Inner scrollable demo box */
+      .demo-box {
+        width: 90%;
+        max-width: 700px;
+        height: 400px;
+        margin: 25px auto;
+        border-radius: 12px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: #222;
+        background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-attachment: scroll;
+        transition: all 0.4s ease;
+        overflow: auto; /* enables local scrolling for 'background-attachment: local' */
+        padding: 15px;
+        text-align: left;
+      }
+
+      .note {
+        background: #e3f2fd;
+        border-left: 5px solid #0d47a1;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-align: left;
+        max-width: 800px;
+        margin: 10px auto;
+      }
+
+      footer {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>🎨 CSS Background Properties — Live Demonstration</h2>
+    <p>
+      Try scrolling and changing the dropdowns to see how the background reacts.
+    </p>
+
+    <div class="controls">
+      <label>
+        <b>background-size:</b>
+        <select id="bgSize">
+          <option value="auto">auto</option>
+          <option value="cover" selected>cover</option>
+          <option value="contain">contain</option>
+          <option value="100% 100%">100% 100%</option>
+          <option value="200px 100px">200px 100px</option>
+        </select>
+      </label>
+
+      <label>
+        <b>background-position:</b>
+        <select id="bgPosition">
+          <option value="left top">left top</option>
+          <option value="center" selected>center</option>
+          <option value="right bottom">right bottom</option>
+          <option value="top center">top center</option>
+          <option value="bottom right">bottom right</option>
+        </select>
+      </label>
+
+      <label>
+        <b>background-attachment:</b>
+        <select id="bgAttachment">
+          <option value="scroll" selected>scroll</option>
+          <option value="fixed">fixed</option>
+          <!-- <option value="local">local</option> -->
+        </select>
+      </label>
+
+      <label>
+        <b>background-repeat:</b>
+        <select id="bgRepeat">
+          <option value="no-repeat" selected>no-repeat</option>
+          <option value="repeat">repeat</option>
+          <option value="repeat-x">repeat-x</option>
+          <option value="repeat-y">repeat-y</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="demo-container">
+      <div class="demo-box" id="demoBox">
+        <h3>Scroll inside me 👇</h3>
+        <p>
+          This box demonstrates how <code>background-attachment</code> and other
+          background properties affect layout.
+        </p>
+        <p>
+          When <b>background-attachment</b> = <code>scroll</code>, the pattern
+          moves with the content.
+        </p>
+        <p>
+          When <b>background-attachment</b> = <code>fixed</code>, the pattern
+          stays still while scrolling the outer container (parallax effect).
+        </p>
+        <p>
+          When <b>background-attachment</b> = <code>local</code>, scroll this
+          box — you’ll see the pattern move only within this area.
+        </p>
+        <br />
+        <p>Scroll down for more text...</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+          malesuada, velit nec cursus dignissim, elit justo congue nunc, in
+          efficitur lectus enim nec erat.
+        </p>
+        <p>
+          Praesent ut varius lorem. Nulla facilisi. Donec euismod dolor sed
+          neque placerat, at tincidunt libero sagittis. Mauris imperdiet orci in
+          pulvinar tempus.
+        </p>
+        <p>
+          Vivamus sodales urna sit amet velit iaculis, non fermentum justo
+          aliquam. Fusce finibus ex ut magna facilisis, id malesuada justo
+          accumsan.
+        </p>
+        <p>
+          Curabitur tristique leo id posuere viverra. Suspendisse potenti. Cras
+          non elit id libero fermentum tincidunt sed et felis.
+        </p>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>💡 What to Observe:</b>
+      <ul>
+        <li>
+          <b>background-size:</b> See how the pattern scales —
+          <code>cover</code> fills, <code>contain</code> fits,
+          <code>auto</code> keeps original, <code>100% 100%</code> stretches.
+        </li>
+        <li>
+          <b>background-position:</b> Moves the pattern to corners, center, or
+          edges.
+        </li>
+        <li>
+          <b>background-attachment:</b>
+          <ul>
+            <li><code>scroll</code> → pattern moves with the page.</li>
+            <li>
+              <code>fixed</code> → pattern stays still (try scrolling the page).
+            </li>
+            <li>
+              <code>local</code> → scroll inside the box to see the pattern
+              move.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>background-repeat:</b> Controls whether the pattern tiles —
+          <code>repeat</code>, <code>repeat-x</code>, <code>repeat-y</code>, or
+          <code>no-repeat</code>.
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      const box = document.getElementById("demoBox");
+      const bgSize = document.getElementById("bgSize");
+      const bgPosition = document.getElementById("bgPosition");
+      const bgAttachment = document.getElementById("bgAttachment");
+      const bgRepeat = document.getElementById("bgRepeat");
+
+      function updateBackground() {
+        box.style.backgroundSize = bgSize.value;
+        box.style.backgroundPosition = bgPosition.value;
+        box.style.backgroundAttachment = bgAttachment.value;
+        box.style.backgroundRepeat = bgRepeat.value;
+      }
+
+      [bgSize, bgPosition, bgAttachment, bgRepeat].forEach((sel) => {
+        sel.addEventListener("change", updateBackground);
+      });
+    </script>
+  </body>
+</html>
